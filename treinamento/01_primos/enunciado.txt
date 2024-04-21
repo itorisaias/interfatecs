@@ -1,0 +1,1 @@
+Escreva um programa em C que solicita ao usuário que insira dois números X e Y, e em seguida exiba todos os números nesta faixa e apresente se é primo ('S') ou não ('N')
