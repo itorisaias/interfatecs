@@ -1,0 +1,2 @@
+Para N alunos, entrar com a nota de duas provas e a sua quantidade de faltas.
+Ele calculará a média aritmética das notas do aluno e, se essa média for igual ou superior a 6 e a respectiva quantidade de faltas for inferior a 10 ele deverá imprimir a string “Aprovado”, e em caso contrário, imprimirá “Reprovado”.
