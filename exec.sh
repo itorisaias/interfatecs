@@ -1,10 +1,15 @@
 #!/bin/bash
 
-# Pedir nome do exercício
-read -p "Digite o nome do exercício: " exercicio
+if [ $# -eq 2 ]; then
+    exercicio="$1"
+    arquivo_fonte="$2"
+else
+    # Pedir nome do exercício
+    read -p "Digite o nome do exercício: " exercicio
 
-# Pedir nome do arquivo-fonte
-read -p "Digite o nome do arquivo-fonte (com extensão): " arquivo_fonte
+    # Pedir nome do arquivo-fonte
+    read -p "Digite o nome do arquivo-fonte (com extensão): " arquivo_fonte
+fi
 
 # Caminhos dos arquivos e diretórios
 caminho_exercicio="./treinamento/$exercicio"

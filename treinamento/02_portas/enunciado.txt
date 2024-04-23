@@ -1,0 +1,52 @@
+Problema A - Portas
+
+Nome do arquivo fonte: portas.c, portas.java, portas.cpp ou portas.pas
+Autor: Leandro Luque (Fatec Mogi das Cruzes)
+
+Durante as férias, João Pedro gosta de aproveitar o tempo brincando com os amigos do prédio
+onde mora. Uma de suas brincadeiras preferidas é o “Peão Abre-Fecha Porta”. A brincadeira
+começa com a escolha de um dos participantes, o peão. Em seguida, os outros participantes
+definem um número e o peão deve passar por todos os andares do prédio que sejam múltiplos
+desse número para inverter o estado da porta do apartamento localizado no andar – ou seja,
+se a porta estiver aberta, ele a fechará; se estiver fechada, ele a abrirá. As portas estão
+inicialmente todas fechadas e existe apenas um apartamento por andar. A brincadeira segue
+com os participantes definindo novos números e o peão abrindo/fechando as portas dos
+andares múltiplos desses números. Quando o grupo desejar, o peão estiver muito cansado, ou
+algum morador reclamar, cada participante da brincadeira, com exceção do peão, é
+questionado sobre o estado das portas do prédio em cada andar (na ordem do mais baixo para
+o mais alto). Aquele que acerta, ganha um doce e fica livre de ser peão durante todo o dia.
+Como João Pedro adora doce e é um pouco preguiçoso, há tempos ele vem procurando por
+alguma forma de sempre ganhar a brincadeira. Para isso, ele pediu para o seu pai, um
+especialista em Informática, para desenvolver um programa que, dados os números que serão
+especificados pelos participantes, determina o estado final das portas dos andares.
+
+Entrada
+A entrada do programa é composta por diversos casos de teste. A primeira linha de cada caso
+de teste contém dois números inteiros A e N, separados por espaço, indicando o número de
+andares (variando de 1 a 100) e a quantidade de números que serão informados pelos
+participantes (variando de 1 a 200), respectivamente. Cada uma das N linhas seguintes contém
+um dos números especificados pelos participantes (variando de 1 a A). O último caso de teste
+é seguido por uma linha que contém dois zeros separados por um espaço em branco.
+
+Saída
+Para cada caso de teste, imprima uma linha contendo A caracteres, indicando o estado de cada
+uma das portas dos andares do prédio (o caractere mais à esquerda representa o andar mais
+baixo; o mais à direita representa o andar mais alto). Caso a porta do andar esteja aberta,
+imprima o caractere ‘O’. Caso a porta esteja fechada, imprima o caractere ‘C’.
+
+Exemplo de entrada
+10 5
+2
+4
+9
+10
+1
+5 3
+3
+4
+2
+0 0
+
+Exemplo de saída
+OCOOOCOOCO
+COOCC

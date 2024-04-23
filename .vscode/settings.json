@@ -1,3 +1,8 @@
 {
-  "code-runner.runInTerminal": true
+  "code-runner.runInTerminal": true,
+  "files.associations": {
+    "*.eex": "html-eex",
+    "*.leex": "html-eex",
+    "stdio.h": "c"
+  }
 }
