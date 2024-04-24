@@ -3,6 +3,8 @@
   "files.associations": {
     "*.eex": "html-eex",
     "*.leex": "html-eex",
-    "stdio.h": "c"
+    "stdio.h": "c",
+    "math.h": "c",
+    "stdlib.h": "c"
   }
 }
