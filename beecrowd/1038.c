@@ -14,29 +14,27 @@
 struct Produto
 {
   int codigo;
-  char *especificacao;
+  char especificacao[50];
   float preco;
 };
-int main() {
+int main()
+{
   struct Produto cardapio[] =
-  {
-    {1, "Cachorro Quente", 4.00},
-    {2, "X-Salada", 4.50},
-    {3, "X-Bacon", 5.00},
-    {4, "Torrada simples", 2.00},
-    {5, "Refrigerante", 1.50},
-  };
+      {
+          {1, "Cachorro Quente", 4.00},
+          {2, "X-Salada", 4.50},
+          {3, "X-Bacon", 5.00},
+          {4, "Torrada simples", 2.00},
+          {5, "Refrigerante", 1.50},
+      };
 
   int codigo, quantidade;
   float total = 0;
   scanf("%d %d", &codigo, &quantidade);
 
   for (int i = 0; i < sizeof(cardapio) / sizeof(cardapio[0]); i++)
-  {
-    if (cardapio[i].codigo == codigo) {
+    if (cardapio[i].codigo == codigo)
       total += cardapio[i].preco * quantidade;
-    }
-  }
 
   printf("Total: R$ %.2f\n", total);
   return 0;
