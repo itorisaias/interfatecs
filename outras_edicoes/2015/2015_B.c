@@ -38,7 +38,7 @@
 
 int mat[MAX_VALUE][MAX_VALUE];
 
-void verificar(int count_linha, int count_coluna, int linha, int coluna)
+void pintarImagem(int count_linha, int count_coluna, int linha, int coluna)
 {
   if (linha < 0 || linha >= count_linha || coluna < 0 || coluna >= count_coluna || mat[linha][coluna] != 1)
   {
@@ -47,44 +47,48 @@ void verificar(int count_linha, int count_coluna, int linha, int coluna)
 
   mat[linha][coluna] = 0;
 
-  verificar(count_linha, count_coluna, linha, coluna - 1); //cima
-  verificar(count_linha, count_coluna, linha, coluna + 1); //baixo
-  verificar(count_linha, count_coluna, linha - 1, coluna); //esquerda
-  verificar(count_linha, count_coluna, linha + 1, coluna); //direita
+  pintarImagem(count_linha, count_coluna, linha, coluna - 1); // cima
+  pintarImagem(count_linha, count_coluna, linha, coluna + 1); // baixo
+  pintarImagem(count_linha, count_coluna, linha - 1, coluna); // esquerda
+  pintarImagem(count_linha, count_coluna, linha + 1, coluna); // direita
 }
 
-void imprimirMatriz(int h, int v)
+void buscarQuantidadeImagens(int h, int v)
 {
-  for (int i = 0; i < h; i++)
-  {
-    for (int j = 0; j < v; j++)
-    {
-      printf("%d ", mat[i][j]);
-    }
-    printf("\n");
-  }
-}
-
-int main()
-{
-  int h, v, imgCount = 0;
-  scanf("%d %d", &h, &v);
-
-  for (int i = 0; i < h; i++)
-    for (int j = 0; j < v; j++)
-      scanf("%d", &mat[i][j]);
-
+  int imgCount = 0;
   for (int linha = 0; linha < h; linha++)
     for (int coluna = 0; coluna < v; coluna++)
       if (mat[linha][coluna] == 1)
       {
-        verificar(h, v, linha, coluna);
-        imprimirMatriz(h, v);
-        printf("\n\n");
+        pintarImagem(h, v, linha, coluna);
         imgCount++;
       }
 
-  printf("R: %d", imgCount);
+  printf("%d\n", imgCount);
+}
+
+void lerQuadro(int h, int v)
+{
+  for (int i = 0; i < h; i++)
+    for (int j = 0; j < v; j++)
+      scanf("%d", &mat[i][j]);
+}
+
+void limpar()
+{
+  for (int i = 0; i < MAX_VALUE; i++)
+    for (int j = 0; j < MAX_VALUE; j++)
+      mat[i][j] = 0;
+}
+
+int main() {
+  int h, v;
+  while (scanf("%d %d", &h, &v) != EOF)
+  {
+    limpar();
+    lerQuadro(h, v);
+    buscarQuantidadeImagens(h, v);
+  }
 
   return 0;
 }
