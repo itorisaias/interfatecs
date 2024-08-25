@@ -1,0 +1,17 @@
+{
+  "name": "builder",
+  "version": "1.0.0",
+  "main": "index.build.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.7.5",
+    "form-data": "^4.0.0",
+    "pdf-parse": "^1.1.1"
+  }
+}

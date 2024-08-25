@@ -1,0 +1,18 @@
+POST http://localhost:8000/boca/admin/problem.php
+Cookie: biscoitobocabombonera=1724611576-2124e01da117a0705940ab8cf4e748422829e36963a3111c7655ac90abcdcd8d; _ga=GA1.1.663677135.1724356777; _ga_TBTX7EY2NW=GS1.1.1724359752.2.1.1724362422.0.0.0; PHPSESSID=599bjs3mv8gsigs2debkblo419
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundarybBuXcIntWMVVeylU
+
+basename
+fullname
+timelimit
+
+------WebKitFormBoundarybBuXcIntWMVVeylU
+Content-Disposition: form-data; name="text"
+
+title
+------WebKitFormBoundarybBuXcIntWMVVeylU
+Content-Disposition: form-data; name="image"; filename="1.png"
+Content-Type: image/png
+
+< ./1.png
+------WebKitFormBoundarybBuXcIntWMVVeylU--
