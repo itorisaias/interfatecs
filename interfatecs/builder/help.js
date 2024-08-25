@@ -1,7 +1,9 @@
+const fs = require('node:fs');
+const path = require('node:path');
+const fsPromises = require('node:fs/promises');
 const axios = require('axios');
-const fs = require('fs');
-const path = require('path');
 const FormData = require('form-data');
+const pdfParse = require('pdf-parse');
 
 async function build({ basename, fullname, timelimit, probleminput, problemsol, problemdesc, download }) {
   const data = new FormData();
@@ -54,4 +56,33 @@ function resolvePath({ year, phase, problem }) {
   }
 }
 
-module.exports = { build, resolvePath };
+async function getProblemList({ year, phase }) {
+  const allFiles = [];
+
+  if (phase !== null && !['Fase 1', 'Fase 2'].includes(phase)) {
+    const files = await fsPromises.readdir(path.resolve(__dirname, '..', year))
+    allFiles.push(...files);
+  } else {
+    const files = await fsPromises.readdir(path.resolve(__dirname, '..', year, phase))
+    allFiles.push(...files);
+  }
+
+  return allFiles
+    .filter(file => file.endsWith('.pdf') && file.length <= 5)
+    .map(file => file.replace('.pdf', ''))
+    .map(problem => ({ ...resolvePath({ year, problem }), letter: problem }));
+}
+
+async function extractBaseName(pdfPath) {
+  const pdfBuffer = await fsPromises.readFile(pdfPath);
+  const data = await pdfParse(pdfBuffer);
+  const basename = data.text.match(/(Arquivo fonte:|Source file:)\s*(.*)\./);
+
+  if (!basename) {
+    return null;
+  }
+
+  return basename[2];
+}
+
+module.exports = { build, resolvePath, getProblemList, extractBaseName };

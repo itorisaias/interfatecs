@@ -1,40 +1,31 @@
-const fsPromises = require('fs/promises');
-const path = require('path');
-const help = require('./help');
-const pdfParse = require('pdf-parse');
+const helper = require('./help');
 
-const { build, resolvePath } = help;
+if (args.length === 0) {
+  console.log("Nenhum parâmetro fornecido. Use 'node index.js <ano> ?<fase>' para gerar os problemas.");
+} 
 
-const year = '2016';
-const phase = null;
+const year = args[0];
+const phase = args[1] || null;
 
 (async () => {
-  const allFiles = await fsPromises.readdir(path.resolve(__dirname, '..', year))
-  const problems = allFiles
-    .filter(file => file.endsWith('.pdf') && file.length <= 5)
-    .map(file => file.replace('.pdf', ''))
-    .map(problem => ({ ...resolvePath({ year, problem }), letter: problem }));
+  const problems = await helper.getProblemList({ year, phase })
 
   for (const problem of problems) {
-    const pdfBuffer = await fsPromises.readFile(problem.pdf);
-    const data = await pdfParse(pdfBuffer);
-    const basename = data.text.match(/(Arquivo fonte:|Source file:)\s*(.*)\./);
+    const basename = await helper.extractBaseName(problem.pdf);
 
     if (!basename) {
       console.error('Error:', problem.letter);
       continue;
     }
 
-    const config = {
-      basename: basename[2],
-      fullname: `Interfatecs - ${year} - ${problem.letter} (${basename[2]})`,
+    build({
+      basename: basename,
+      fullname: `Interfatecs - ${year} - ${problem.letter} (${basename})`,
       timelimit: 10,
       probleminput: problem.input,
       problemsol: problem.output,
       problemdesc: problem.pdf,
        download: problem.download
-    };
-
-    build(config);
+    });
   }
 })()
