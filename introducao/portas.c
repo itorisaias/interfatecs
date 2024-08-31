@@ -7,26 +7,22 @@
 int main()
 {
     char predio[MAX_TAM];
-    int c, A, N, x, numero;
+    int i, A, N, x, numero;
     while (TRUE)
     {
         scanf("%d %d", &A, &N);
-        // condicao de parada
-        if (A == 0 && N == 0)
+        if (A == 0 && N == 0) // condicao de parada
             break;
-        // inicializa o predio
-        for (c = 0; c < A; c++)
-            predio[c] = FALSE;
-        // leitura dos numeros
-        for (c = 0; c < N; c++)
+        for (i = 0; i < A; i++) // inicializa o predio
+            predio[i] = FALSE;
+        for (i = 0; i < N; i++) // leitura dos numeros
         {
             scanf("%d", &numero);
             for (x = numero - 1; x < A; x += numero)
                 predio[x] = !predio[x];
         }
-        // impressao do predio
-        for (c = 0; c < A; c++)
-            printf("%c", predio[c] ? 'O' : 'C');
+        for (i = 0; i < A; i++) // impressao do predio
+            printf("%c", predio[i] ? 'O' : 'C');
         printf("\n");
     }
     return 0;
