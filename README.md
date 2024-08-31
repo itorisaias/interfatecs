@@ -33,8 +33,10 @@ Os encontros serão realizados quinzenalmente, alternando entre encontros presen
 
 Aqui estão alguns links para slides apresentados durante os encontros:
 
+- [Playlist começando](https://youtube.com/playlist?list=PLhG73Yelerducqws4A2xHJSPUJImbo9ye&si=UxlZFEYtP1KuYtlp)
 - [Slide 1: Introdução às Competições de Programação](https://itorisaias.github.io/interfatecs/01)
 - [Slide 2: Técnicas de Resolução de Problemas](https://itorisaias.github.io/interfatecs/02)
+
 <!-- - [Slide 3: Estratégias para Competição em Equipe](#link-do-slide-3) -->
 
 Esses slides servem como material de estudo e revisão dos conceitos abordados durante as sessões de capacitação.
