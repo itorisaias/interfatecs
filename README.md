@@ -34,6 +34,7 @@ Os encontros serão realizados quinzenalmente, alternando entre encontros presen
 Aqui estão alguns links para slides apresentados durante os encontros:
 
 - [Playlist: Introdução às Ferramentas e Solução de Exercícios](https://youtube.com/playlist?list=PLhG73Yelerducqws4A2xHJSPUJImbo9ye&si=UxlZFEYtP1KuYtlp)
+- [Video: Primeiro encontro On-line - Em breve]()
 - [Slide 1: Introdução às Competições de Programação](https://itorisaias.github.io/interfatecs/01)
 - [Slide 2: Técnicas de Resolução de Problemas](https://itorisaias.github.io/interfatecs/02)
 
