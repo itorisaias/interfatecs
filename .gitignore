@@ -2,6 +2,3 @@
 !**/output/.gitkeep
 **/code/**
 !**/code/.gitkeep
-
-/beecrowd/**
-!/beecrowd/**.c
