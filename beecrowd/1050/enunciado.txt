@@ -2,6 +2,8 @@ beecrowd | 1050
 DDD
 Adaptado por Neilor Tonin, URI  Brasil
 
+ddd.{c, py, java}
+
 Timelimit: 1
 Leia um número inteiro que representa um código de DDD para discagem interurbana. Em seguida, informe à qual cidade o DDD pertence, considerando a tabela abaixo:
 

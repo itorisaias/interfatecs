@@ -2,6 +2,8 @@ beecrowd | 1087
 Dama
 Por Fábio Dias Moreira  Brasil
 
+dama.{c, py, java}
+
 Timelimit: 1
 O jogo de xadrez possui várias peças com movimentos curiosos: uma delas é a dama, que pode se mover qualquer quantidade de casas na mesma linha, na mesma coluna, ou em uma das duas diagonais, conforme exemplifica a figura abaixo:
 

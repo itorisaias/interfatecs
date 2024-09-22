@@ -2,6 +2,8 @@ beecrowd | 2060
 Desafio de Bino
 Por Thalyson Nepomuceno, UECE BR Brasil
 
+bino.{c, py, java}
+
 Timelimit: 1
 Bino e Cino são colegas inseparáveis. Bino gosta de criar desafios matemáticos para Cino resolver. Desta vez, Bino gerou uma lista de números e perguntou ao Cino quantos números da lista são múltiplos de 2, 3, 4 e 5.
 

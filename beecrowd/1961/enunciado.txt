@@ -2,6 +2,8 @@ beecrowd | 1961
 Pula Sapo
 Por M.C. Pinto, UNILA BR Brazil
 
+pulasapo.{c, py, java}
+
 Timelimit: 1
 Em cada fase do jogo do Pula Sapo você deve conduzir seu anfíbio através de uma sequência de canos de alturas diferentes até chegar a salvo no cano mais à direita. Entretanto, o sapo só consegue sobreviver se a diferença de altura entre canos consecutivos for de, no máximo, a altura do pulo do sapo. Caso a altura do cano seguinte seja muito alta, o sapo bate no cano e cai. Se a altura do cano seguinte for muito baixa, o sapo não aguenta a queda. O sapo sempre começa em cima do cano mais à esquerda.
 

@@ -4,6 +4,7 @@ Jean Bez, beecrowd  Brasil
 
 Timelimit: 1
 
+hello.{c, py, java}
 
 Bem-vindo ao beecrowd!
 
