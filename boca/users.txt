@@ -1,0 +1,30 @@
+[user]
+usernumber=2000
+usersitenumber=1
+username=administradorexemplo
+userfullname=Administrador exemplo
+userdesc=Administrador de exemplo
+usertype=admin
+userpassword=123456
+userenabled=1
+usermultilogin=t
+
+usernumber=3000
+usersitenumber=1
+username=organizadorexemplo
+userfullname=Organizador exemplo
+userdesc=Organizador de exemplo
+usertype=staff
+userpassword=123456
+userenabled=1
+usermultilogin=t
+
+usernumber=4000
+usersitenumber=1
+username=teamexemplo
+userfullname=Aluno exemplo
+userdesc=Aluno de exemplo
+usertype=team
+userpassword=123456
+userenabled=1
+usermultilogin=t

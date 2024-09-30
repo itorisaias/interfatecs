@@ -1,0 +1,138 @@
+# Services
+services:
+  # web app
+  boca-web:
+    image: ghcr.io/joaofazolo/boca-docker/boca-web:latest
+    environment:
+      # Senha do usuário superuser do banco de dados criado no serviço boca-db
+      # Essa senha é utilzada para criar o banco de dados e o usuário do boca-web
+      # Imagem docker não suporta secret
+      BOCA_DB_SUPER_PASSWORD_FILE: /run/secrets/postgres_password
+      BOCA_DB_SUPER_USER_FILE: /run/secrets/postgres_user
+      BOCA_PASSWORD_FILE: /run/secrets/boca_admin_password
+      BOCA_KEY_FILE: /run/secrets/boca_key
+      # Usuário do banco de dados que será criado
+      BOCA_DB_USER_FILE: /run/secrets/boca_db_user
+      BOCA_DB_PASSWORD_FILE: /run/secrets/boca_db_password
+      BOCA_DB_HOST: boca-db # IP ou nome do serviço
+      BOCA_DB_NAME: bocadb # Nome do banco de dados
+    secrets:
+      - postgres_password
+      - postgres_user
+      - boca_admin_password
+      - boca_key
+      - boca_db_user
+      - boca_db_password
+    ports:
+      - 8000:80
+    networks:
+      - frontend
+      - backend
+    depends_on:
+      - boca-db
+    deploy:
+      mode: global
+      placement:
+        constraints:
+          - "node.role==manager"
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 1024M
+        reservations:
+          cpus: "0.25"
+          memory: 512M
+      restart_policy:
+        condition: on-failure
+
+  # online judge
+  boca-jail:
+    image: ghcr.io/joaofazolo/boca-docker/boca-jail:latest
+    privileged: true
+    environment:
+      BOCA_DB_USER_FILE: /run/secrets/boca_db_user
+      BOCA_DB_PASSWORD_FILE: /run/secrets/boca_db_password
+      BOCA_DB_NAME: bocadb # Nome do banco de dados
+      BOCA_DB_HOST: boca-db # IP ou nome do serviço
+
+      BOCA_WEB_HOST: boca-web # IP ou nome do serviço
+    secrets:
+      - boca_db_user
+      - boca_db_password
+    networks:
+      - backend
+    depends_on:
+      - boca-db
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        max_replicas_per_node: 8
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 1024M
+        reservations:
+          cpus: "0.25"
+          memory: 512M
+      restart_policy:
+        condition: on-failure
+
+  # Database
+  boca-db:
+    image: postgres:14-alpine
+    environment:
+      POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
+      POSTGRES_USER_FILE: /run/secrets/postgres_user
+      PGDATA: /var/lib/postgresql/data/pgdata
+    secrets:
+      - postgres_password
+      - postgres_user
+    ports:
+      - 5432:5432
+    networks:
+      - backend
+    volumes:
+      - boca-db-data:/var/lib/postgresql/data
+    deploy:
+      mode: global
+      placement:
+        constraints:
+          - "node.role==manager"
+      resources:
+        limits:
+          cpus: "0.50"
+          memory: 2048M
+        reservations:
+          cpus: "0.25"
+          memory: 1024M
+      restart_policy:
+        condition: on-failure
+
+# Volumes
+volumes:
+  boca-db-data:
+    driver: local
+
+# Secrets
+secrets:
+  postgres_password:
+    file: ./postgres_password.txt
+  postgres_user:
+    file: ./postgres_user.txt
+  boca_admin_password:
+    file: ./boca_admin_password.txt
+  boca_key:
+    file: ./boca_key.txt
+  boca_db_password:
+    file: ./boca_db_password.txt
+  boca_db_user:
+    file: ./boca_db_user.txt
+
+# Networks
+networks:
+  frontend: # visible to the internet
+    driver: bridge
+  backend: # hidden from the outside world
+    driver: bridge
+    internal: true
