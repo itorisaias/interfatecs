@@ -41,3 +41,7 @@ Aqui estão alguns links para slides apresentados durante os encontros:
 <!-- - [Slide 3: Estratégias para Competição em Equipe](#link-do-slide-3) -->
 
 Esses slides servem como material de estudo e revisão dos conceitos abordados durante as sessões de capacitação.
+
+## Configuração do Boca
+
+Mais informações sobre a configuração do Boca podem ser encontradas [aqui](./boca/README.md).
