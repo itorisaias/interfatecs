@@ -3,7 +3,7 @@ setlocal
 
 rem Verifica se o diretório foi passado como argumento
 if "%~1"=="" (
-    echo Por favor, forneça o diretório a ser monitorado.
+    echo Por favor, forneça o diretório a ser monitorado. \n
     exit /b 1
 )
 
@@ -11,12 +11,12 @@ set "DIR_TO_WATCH=%~1"
 
 rem Verifica se o diretório existe
 if not exist "%DIR_TO_WATCH%" (
-    echo O diretório %DIR_TO_WATCH% não existe.
+    echo O diretório %DIR_TO_WATCH% não existe. \n 
     exit /b 1
 )
 
 rem Comando para iniciar o servidor Python
-set "START_COMMAND=python %DIR_TO_WATCH%\main.py"  rem Substitua pelo comando que inicia sua aplicação
+set "START_COMMAND=python %DIR_TO_WATCH%\main.py"
 
 rem Pega a última modificação de qualquer arquivo Python no diretório
 for /f "delims=" %%i in ('forfiles /p "%DIR_TO_WATCH%" /m *.py /c "cmd /c echo @fdate @ftime"') do (
@@ -39,7 +39,7 @@ for /f "delims=" %%i in ('forfiles /p "%DIR_TO_WATCH%" /m *.py /c "cmd /c echo @
 
 rem Verifica se houve modificação
 if not "%NEW_MODIFICATION%"=="%LAST_MODIFICATION%" (
-    echo Arquivos modificados. Reiniciando servidor...
+    echo Arquivos modificados. Reiniciando servidor... \n
     taskkill /PID %PID% /F >nul 2>&1
     start "" cmd /c %START_COMMAND%
     set "LAST_MODIFICATION=%NEW_MODIFICATION%"
