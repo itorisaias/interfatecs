@@ -1,0 +1,6 @@
+contas      A   Pink       [x] #FFC0CB   [x] python [ ] c -> teste final [x]
+resgate     B   Laranja    [x] #ff6600   [x] python [ ] c -> teste final [x]
+celular     C   Marrom     [x] #976637   [x] python [x] c -> teste final [x]
+boleto      D   Branca     [x] #ffffff   [x] python [x] c -> teste final [x]
+conversao   E   Amarela    [x] #ffff00   [x] python [ ] c -> teste final [x]
+pacman      F   Preta      [x] #000000   [x] python [ ] c -> teste final [x]

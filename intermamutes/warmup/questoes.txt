@@ -1,0 +1,3 @@
+Problema J 2023 - Fase 2 - pim          - A -> OK
+Problema E 2017 - Fase 1 - nomes        - B -> OK
+Problema E 2018 - Fase 1 - linguadopqr  - C
